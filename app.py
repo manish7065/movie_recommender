@@ -59,7 +59,7 @@ if st.button('Show Recommendation'):
 
 if __name__ == '__main__':
     # Run the app
-    st.set_option('server.address', '0.0.0.0')
-    st.set_option('server.port', 5000)
-    app = YourStreamlitApp()
+    # st.set_option('server.address', '0.0.0.0')
+    # st.set_option('server.port', 5000)
+    # app = YourStreamlitApp()
     app.run()
