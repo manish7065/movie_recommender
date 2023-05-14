@@ -20,7 +20,7 @@ from src.utils import save_object
 
 @dataclass
 class DataTransformationConfig:
-    movie_list_obj_file_path=os.path.join('artifacts','movie_list.pkl')
+    movie_list_obj_file_path=os.path.join('artifacts','movie_data.pkl')
     transformed_data_file_path = os.path.join('artifacts','transformed.csv')
 
 class DataTransformation:
@@ -130,9 +130,9 @@ class DataTransformation:
 
             save_object(
                 file_path=self.data_transformation_config.movie_list_obj_file_path,
-                obj=new_df
+                obj=new_df #new_df data will be stored in file_path 
             )
-            logging.info('movie list pickle file saved')
+            logging.info('movie_data pickle file saved')
 
             return (
                 self.data_transformation_config.movie_list_obj_file_path,
