@@ -2,7 +2,7 @@
 import numpy as np
 import pandas as pd
 
-from src.utils import save_object
+from src.utils import save_object,load_object
 from src.exception import CustomException
 from src.logger import logging
 
@@ -27,15 +27,15 @@ class ModelTrainer:
      
         # self.data_transformation_config = DataTransformationConfig()
 
-    def initate_model_training(self,raw_data):
+    def initate_model_training(self,transformed_data_path):
         try:
             logging.info(f"{'<<'*10} Model training starting {'>>'*10}")
 
             logging.info('loading the transformed data')
 
-            print(f"{'*'*10}{raw_data}")
+            print(f"{'-'*10}transformed data path : {transformed_data_path}")
             
-            new_df = pd.read_csv(raw_data)
+            new_df = load_object(transformed_data_path)
             print("this is----------------------")
             # print(f"{'*'*10}{new_df}")
 
