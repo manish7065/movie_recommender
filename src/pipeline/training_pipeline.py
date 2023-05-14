@@ -12,11 +12,14 @@ from src.components.model_trainer import ModelTrainer
 
 if __name__=='__main__':
     obj=DataIngestion()
-    raw_data_apth = obj.initiate_data_ingestion()
+    raw_data_path = obj.initiate_data_ingestion()
+    # print(f"{'**'*10} {raw_data_path}")
     data_transformation = DataTransformation()
-    train_arr,test_arr,_=data_transformation.initaite_data_transformation(raw_data_apth)
+    data_transformation.initaite_data_transformation(raw_data_path)
     model_trainer=ModelTrainer()
-    model_trainer.initate_model_training(train_arr,test_arr)
+    raw_data = pd.read_csv(raw_data_path)
+    # print(f"Printing Raw Data:- {raw_data}")
+    model_trainer.initate_model_training(raw_data_path)
 
 
 
