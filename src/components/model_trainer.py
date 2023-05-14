@@ -2,7 +2,7 @@
 import numpy as np
 import pandas as pd
 
-# from src.components.data_transformation import DataTransformationConfig
+from src.utils import save_object
 from src.exception import CustomException
 from src.logger import logging
 
@@ -33,23 +33,29 @@ class ModelTrainer:
 
             logging.info('loading the transformed data')
 
-            print(f"{'<>'*10}{raw_data}")
+            print(f"{'*'*10}{raw_data}")
             
             new_df = pd.read_csv(raw_data)
-            print("this is....................................")
+            print("this is----------------------")
             # print(f"{'*'*10}{new_df}")
 
             logging.info("Stemming the transformed data tag column. ")
-            ps = PorterStemmer()
+            logging.info(f"new_df tags : {new_df['tags'][0]} ")
 
-            def stm(text):
-                p=[]
-                for i in text.split():
-                    p.append(ps.stem(i))
-                    
-                return " ".join(p)
+            try:
+                ps = PorterStemmer()
+                def stm(text):
+                    p=[]
+                    for i in text.split():
+                        p.append(ps.stem(i))
+                    return " ".join(p)
 
-            new_df.loc[:, 'tags'] = new_df.loc[:, 'tags'].apply(stm)
+                # Assuming new_df is a Pandas DataFrame with a 'tags' column
+                new_df['tags'] = new_df['tags'].apply(lambda x: stm(x) if isinstance(x, str) else x)
+
+            except Exception as e:
+                # Handle any errors that occur
+                print("An error occurred:", e)
 
             logging.info(f"Creating vectors")
             # Create a CountVectorizer object
