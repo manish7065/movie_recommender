@@ -31,23 +31,7 @@ class DataTransformation:
 
     def get_data_transformation_object(self):
         try:
-            def convert(obj):
-                L=[]
-                for i in ast.literal_eval(obj):
-                    L.append(i['name'])
-            return L
-        
-            def convert2(obj):
-                L = []
-                counter =0
-                for i in ast.literal_eval(obj):
-                    if counter != 3:
-                        counter+=1
-                        L.append(i['name'])
-                    else:
-                        break        
-            return L 
-
+            pass
 
         except Exception as e:
             logging.info("Exception occured in the initiate_datatransformation")
