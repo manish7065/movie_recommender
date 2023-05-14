@@ -1,6 +1,7 @@
 import pickle
 import requests
 from flask import Flask, render_template, request
+from src.pipeline import training_pipeline
 
 app = Flask(__name__)
 
@@ -32,6 +33,13 @@ def home():
         recommended_movie_names,recommended_movie_posters = recommend(selected_movie)
         return render_template('recommendations.html', recommended_movie_names=recommended_movie_names, recommended_movie_posters=recommended_movie_posters)
     return render_template('index.html', movie_list=movies['title'].values)
+
+@app.route('/train',method = ['GET','POST'])
+def train():
+    if request.method == 'POST':
+        training_pipeline
+
+
 
 if __name__ == '__main__':
     # Load the pickled files
