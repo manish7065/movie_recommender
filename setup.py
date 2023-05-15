@@ -16,7 +16,7 @@ def get_requirements(file_path:str)->List[str]:
 
 
 setup(
-    name='Movie Recommander Project',
+    name='src',
     version='0.0.1',
     author='Manish',
     author_email='maimage95@gmail.com',
