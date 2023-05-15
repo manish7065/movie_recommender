@@ -26,7 +26,7 @@ class TrainingPipeline:
             data_transformation.initaite_data_transformation(raw_data_path)
             data_transformation_config = DataTransformationConfig()
             transformed_data_path = data_transformation_config.transformed_data_file_path
-            print(f"Printing Ytansformed Data Path:- {transformed_data_path}")
+            # print(f"Printing Ytansformed Data Path:- {transformed_data_path}")
 
             model_trainer=ModelTrainer()
             model_trainer.initate_model_training(transformed_data_path)

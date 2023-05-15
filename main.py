@@ -43,10 +43,12 @@ def train():
         
 
 if __name__ == '__main__':
-    # Load the pickled files
+    # training_pipeline = TrainingPipeline()
+    # training_pipeline.initiate_training()
+
     prediction_pipeline = PredictPipeline()
     movies,model=prediction_pipeline.mivie_list()
-    print(movies)
+    # print(movies)
 
     # movies = pickle.load(open('movie_list.pkl', 'rb'))
     # similarity = pickle.load(open('similarity.pkl', 'rb'))

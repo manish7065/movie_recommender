@@ -47,7 +47,7 @@ class PredictPipeline:
                 recommended_movie_posters.append(self.fetch_poster(movie_id))
                 recommended_movie_names.append(movies.iloc[i[0]].title)
 
-            return recommended_movie_names,recommended_movie_posters
+            return recommended_movie_names,recommended_movie_posters,movies
 
         except Exception as e:
             raise CustomException(e,sys)
