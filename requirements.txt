@@ -4,5 +4,6 @@ pandas
 numpy
 nltk
 ipykernel
+flask
 
 -e .
