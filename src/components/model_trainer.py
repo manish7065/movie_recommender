@@ -33,10 +33,10 @@ class ModelTrainer:
 
             logging.info('loading the transformed data')
 
-            print(f"{'-'*10}transformed data path : {transformed_data_path}")
+            # print(f"{'.'*10}transformed data path : {transformed_data_path}")
             
-            new_df = load_object(transformed_data_path)
-            print("this is----------------------")
+            new_df = pd.read_csv(transformed_data_path)
+            # print("this is***********")
             # print(f"{'*'*10}{new_df}")
 
             logging.info("Stemming the transformed data tag column. ")
@@ -62,16 +62,20 @@ class ModelTrainer:
             cv = CountVectorizer()
 
             vectors = cv.fit_transform(new_df['tags']).toarray()
+            logging.info(f"vector created successfully.")
+
 
             similarity = cosine_similarity(vectors)
 
+            logging.info(f"similarity created successfully.")
 
-            logging("Saving the model.")
+            logging.info("Saving the model.")
             save_object(
                  file_path=self.model_trainer_config.trained_model_file_path,
                  obj=similarity
             )
           
+            logging.info(f"{'<<'*10} Model training sucessfully completed. {'>>'*10}")
 
         except Exception as e:
             logging.info('Exception occured at Model Training')
