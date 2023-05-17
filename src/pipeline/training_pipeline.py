@@ -32,6 +32,7 @@ class TrainingPipeline:
             model_trainer.initate_model_training(transformed_data_path)
 
             logging.info(f"{'<<'*10}training pipeline sucessfully completed.{'>>'*10}")
+            print('training pipeline sucessfully completed.')
 
         except Exception as e:
             logging.info("Exception occured in prediction")
