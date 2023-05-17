@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Movie Recommender System</title>
+  <style>
+    #loading {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Movie Recommender System</h1>
+  <button onclick="trainModel()">Train the Model</button>
+  <button onclick="predictMovies()">Recommend Movie</button>
+
+  <div id="loading">
+    <h3>Training the pipeline...</h3>
+    <img src="loading.gif" alt="Loading" width="50" height="50">
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    function trainModel() {
+      $('#loading').show(); // Show the loading screen
+
+      $.ajax({
+        url: '/train',
+        type: 'POST',
+        success: function(response) {
+          // Handle the response from the server
+          console.log(response);
+          alert('Model training completed.');
+          $('#loading').hide(); // Hide the loading screen
+        },
+        error: function(error) {
+          // Handle any errors that occur during the AJAX request
+          console.log(error);
+          alert('An error occurred during model training.');
+          $('#loading').hide(); // Hide the loading screen
+        }
+      });
+    }
+
+    function predictMovies() {
+      window.location.href = '/predict';
+    }
+  </script>
+</body>
+</html>
