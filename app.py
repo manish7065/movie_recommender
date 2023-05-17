@@ -56,3 +56,10 @@ if st.button('Show Recommendation'):
     with col5:
         st.text(recommended_movie_names[4])
         st.image(recommended_movie_posters[4])
+
+if __name__ == '__main__':
+    # Run the app
+    st.set_option('server.address', '0.0.0.0')
+    st.set_option('server.port', 5000)
+    app = YourStreamlitApp()
+    app.run()

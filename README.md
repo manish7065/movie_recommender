@@ -13,7 +13,7 @@ This is a simple movie recommendar which suggest 5 similar genres movies.
 ```
 python -m venv env
 ```
-## Install Streamlet Framework
+## Install Streamlit Framework
 ```
-pip install streamlet
+pip install streamlit
 ```
