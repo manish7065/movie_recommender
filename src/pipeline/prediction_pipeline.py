@@ -11,7 +11,7 @@ class PredictPipeline:
     def __init__(self):
         pass
     
-    def mivie_list(self):
+    def movie_list(self):
             movie_data_path = os.path.join('artifacts','movie_data.pkl')
             model_path=os.path.join('artifacts','model.pkl')
 
@@ -35,7 +35,7 @@ class PredictPipeline:
 
     def recommend(self,movie):
         try:
-            movies,model=self.mivie_list()
+            movies,model=self.movie_list()
 
             index = movies[movies['title'] == movie].index[0]
             distances = sorted(list(enumerate(model[index])), reverse=True, key=lambda x: x[1])
