@@ -17,6 +17,31 @@ I am using stramlit to demonstrate the web app but in end to end project i am us
 3. [Git CLI]("https://git-scm.com/book/en/v2/Getting-Started-The-Command-Line")
 4. [Docker](https://www.docker.com/)
 
+<br>
+
+## Project Architecture
+
+![Architech Image](/docs/architech.png)
+<br>
+
+## Home page 
+![Training page](/docs/training1.png)<br>
+![Training page](/docs/training2.png)
+
+<br>
+
+## Movie selection page
+
+![Training page](/docs/recommender.png)
+
+<br>
+
+## Recommended movies
+
+![Training page](/docs/spider_man.png)
+![Training page](/docs/avatar.png)
+
+
 
 # To run the project on your follow stepwise:
 
